@@ -23,7 +23,7 @@ jobs:
       run: flake8 api
 
     - name: Test with pytest
-      run: pytest tests.py
+      run: pytest
 
   send_message:
     runs-on: ubuntu-latest
