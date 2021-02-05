@@ -22,9 +22,6 @@ jobs:
     - name: Lint with flake8
       run: flake8 api
 
-    - name: Test with pytest
-      run: pytest
-
   send_message:
     runs-on: ubuntu-latest
     needs: tests
