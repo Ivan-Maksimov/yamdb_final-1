@@ -14,6 +14,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='title',
             name='year',
-            field=models.PositiveIntegerField(db_index=True, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(2021)], verbose_name='Год выпуска'),
+            field=models.PositiveIntegerField(
+                db_index=True,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(2021)],
+                verbose_name='Год выпуска'),
         ),
     ]

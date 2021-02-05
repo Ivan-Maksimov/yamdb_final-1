@@ -12,15 +12,24 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='category',
-            options={'ordering': ['id'], 'verbose_name': 'category', 'verbose_name_plural': 'categories'},
+            options={
+                'ordering': ['id'],
+                'verbose_name': 'category',
+                'verbose_name_plural': 'categories'},
         ),
         migrations.AlterModelOptions(
             name='comment',
-            options={'ordering': ['-pub_date'], 'verbose_name': 'comment', 'verbose_name_plural': 'comments'},
+            options={
+                'ordering': ['-pub_date'],
+                'verbose_name': 'comment',
+                'verbose_name_plural': 'comments'},
         ),
         migrations.AlterModelOptions(
             name='review',
-            options={'ordering': ['-score'], 'verbose_name': 'review', 'verbose_name_plural': 'reviews'},
+            options={
+                'ordering': ['-score'],
+                'verbose_name': 'review',
+                'verbose_name_plural': 'reviews'},
         ),
         migrations.RemoveField(
             model_name='genre',
@@ -29,6 +38,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='title',
             name='genre',
-            field=models.ManyToManyField(blank=True, default=None, related_name='genre', to='api.Genre'),
+            field=models.ManyToManyField(
+                blank=True,
+                default=None,
+                related_name='genre',
+                to='api.Genre'),
         ),
     ]

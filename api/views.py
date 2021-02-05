@@ -169,7 +169,7 @@ def send_email(request):
         email.send()
         return Response({'email': serializer.data['email'],
                          'confirmation code': str(confirmation_code)},
-                                status=status.HTTP_200_OK)
+                        status=status.HTTP_200_OK)
     else:
         return Response(serializer.errors,
                         status=status.HTTP_400_BAD_REQUEST)
@@ -181,7 +181,7 @@ def send_JWT(request):
     user = User.objects.get(email=request.data.get('email'))
     if confirmation_code_generator.check_token(user,
                                                request.data.get(
-                                               'confirmation_code')):
+                                                   'confirmation_code')):
         user.is_active = True
         user.save()
         data = {

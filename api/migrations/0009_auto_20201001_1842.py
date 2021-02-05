@@ -13,11 +13,19 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='category',
-            options={'ordering': ['-id'], 'verbose_name': 'category', 'verbose_name_plural': 'categories'},
+            options={
+                'ordering': ['-id'],
+                'verbose_name': 'category',
+                'verbose_name_plural': 'categories'},
         ),
         migrations.AlterField(
             model_name='title',
             name='year',
-            field=models.PositiveIntegerField(db_index=True, validators=[django.core.validators.MinValueValidator(0), django.core.validators.MaxValueValidator(2020)], verbose_name='Год выпуска'),
+            field=models.PositiveIntegerField(
+                db_index=True,
+                validators=[
+                    django.core.validators.MinValueValidator(0),
+                    django.core.validators.MaxValueValidator(2020)],
+                verbose_name='Год выпуска'),
         ),
     ]

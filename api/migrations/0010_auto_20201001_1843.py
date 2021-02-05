@@ -12,6 +12,9 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='review',
-            options={'ordering': ['-pub_date'], 'verbose_name': 'review', 'verbose_name_plural': 'reviews'},
+            options={
+                'ordering': ['-pub_date'],
+                'verbose_name': 'review',
+                'verbose_name_plural': 'reviews'},
         ),
     ]
