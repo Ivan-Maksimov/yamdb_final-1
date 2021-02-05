@@ -1,0 +1,49 @@
+version: '3.8'
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+
+services:
+  postgres:
+    image: postgres:13.1
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+    networks:
+      - postgres_network
+
+  web:
+    build: .
+    restart: always
+    volumes:
+      - static_volume:/code/static  # <-- bind the static volume
+      - media_volume:/code/media  # <-- bind the media volume
+    depends_on:
+      - postgres
+    env_file:
+      - ./.env
+    networks:
+      - nginx_network
+      - postgres_network
+
+  nginx:
+    image: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - static_volume:/code/static  # <-- bind the static volume
+      - media_volume:/code/media  # <-- bind the media volume
+    depends_on:  # <-- wait for djangoapp to be "ready" before starting this service
+      - web
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
+  postgres_network:
+    driver: bridge
