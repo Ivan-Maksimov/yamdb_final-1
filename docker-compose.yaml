@@ -16,7 +16,7 @@ services:
       - postgres_network
 
   web:
-    build: .
+    image: serg733/yamdb_final_web:v1.0
     restart: always
     volumes:
       - static_volume:/code/static  # <-- bind the static volume
