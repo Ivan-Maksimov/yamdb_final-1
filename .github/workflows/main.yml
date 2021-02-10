@@ -69,12 +69,19 @@ jobs:
           script: |
             sudo pwd
             sudo ls -a
+            sudo pwd
             sudo ls -a /
+            sudo pwd
             sudo ls -a /home
+            sudo pwd
             sudo ls -a /home/runner
+            sudo pwd
             sudo ls -a /home/runner/work
+            sudo pwd
             sudo ls -a /home/runner/work/yamdb_final
+            sudo pwd
             sudo ls -a /home/runner/work/yamdb_final/yamdb_final
+            sudo pwd
 
 
             sudo docker pull serg733/yamdb_final_web:latest
