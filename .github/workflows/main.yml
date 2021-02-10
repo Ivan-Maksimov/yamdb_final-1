@@ -62,8 +62,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-#          source: "docker-compose.yaml, nginx/default.conf"
-#          target: "~/app/"
+          source: "docker-compose.yaml, nginx/conf.d"
+          target: "~/code/"
           script: |
             sudo docker pull serg733/yamdb_final_web:latest
             sudo docker-compose stop
