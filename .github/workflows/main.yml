@@ -66,6 +66,8 @@ jobs:
           target: "~/code/"
           script: |
             sudo docker pull serg733/yamdb_final_web:latest
+            sudo pwd
+            sudo ls
             sudo docker-compose stop
             sudo docker-compose rm web
             sudo docker-compose up
