@@ -59,10 +59,6 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-        with:
-          script: |
-            sudo pwd
-            sudo ls
 
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
@@ -70,11 +66,23 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "docker-compose.yaml, nginx/conf.d"
-          target: "~/code/"
           script: |
             sudo pwd
-            sudo ls
+            sudo ls -a
+            sudo cd ..
+            sudo ls -a
+            sudo cd runner/
+            sudo pwd
+            sudo ls -a
+            sudo cd work/
+            sudo pwd
+            sudo ls -a
+            sudo cd yamdb_final/
+            sudo pwd
+            sudo ls -a
+            sudo cd yamdb_final/
+            sudo pwd
+            sudo ls -a
             sudo docker pull serg733/yamdb_final_web:latest
             sudo docker-compose stop
             sudo docker-compose rm web
