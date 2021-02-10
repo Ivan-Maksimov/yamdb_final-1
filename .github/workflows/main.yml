@@ -40,8 +40,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: serg733/yamdb_final_web:latest
-          tag_with_ref: true
+          push: true
+          tags: serg733/yamdb_final_web:latest
 
   send_message:
     runs-on: ubuntu-latest
