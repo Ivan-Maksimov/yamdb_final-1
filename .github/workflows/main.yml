@@ -60,17 +60,15 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
 
-      - name: copy docker-compose
+      - name: copy docker-compose and nginx
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-        run: |
-          pwd
-          ls
-          pwd
-          ls -a
-          sudo scp -r docker-compose.yaml ${{ secrets.USER }}@${{ secrets.HOST }}:~
+          source: "docker-compose.yaml, nginx/conf.d/local.conf"
+          target: "~/code/"
+
 
 
       - name: executing remote ssh commands to deploy
