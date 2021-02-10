@@ -67,7 +67,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           source: "docker-compose.yaml, nginx/conf.d/local.conf"
-          target: "~/code/"
+          target: "~"
 
 
 
