@@ -35,5 +35,3 @@ services:
       - ./media:/code/media
     depends_on:
       - web
-    networks:
-      - nginx_network
