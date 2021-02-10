@@ -50,6 +50,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           push: true
           tags: serg733/yamdb_final_web:latest
+
   deploy:
 
     runs-on: ubuntu-latest
@@ -66,10 +67,17 @@ jobs:
           target: "~/code/"
           script: |
             sudo docker pull serg733/yamdb_final_web:latest
-            sudo pwd
-            sudo ls
             sudo docker-compose stop
             sudo docker-compose rm web
+            sudo pwd
+            sudo pwd
+            sudo pwd
+            sudo pwd
+            sudo pwd
+            sudo ls -a
+            sudo ls -a
+            sudo ls -a
+            sudo ls -a
             sudo docker-compose up
 
   send_message:
