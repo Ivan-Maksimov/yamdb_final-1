@@ -19,8 +19,8 @@ services:
     image: serg733/yamdb_final_web:v1.0
     restart: always
     volumes:
-      - ./static:/code/static  # <-- bind the static volume
-      - ./media:/code/media  # <-- bind the media volume
+      - ./static:/static  # <-- bind the static volume
+      - ./media:/media  # <-- bind the media volume
     depends_on:
       - postgres
     env_file:
@@ -35,8 +35,8 @@ services:
       - 80:80
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./static:/code/static
-      - ./media:/code/media
+      - ./static:/static
+      - ./media:/media
     depends_on:
       - web
     networks:
