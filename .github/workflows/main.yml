@@ -61,12 +61,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: copy docker-compose
-        run: |
-          pwd
-          ls
-          pwd
-          ls -a
-          sudo scp -r docker-compose.yaml ${{ secrets.USER }}@${{ secrets.HOST }}:~
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          run: |
+            pwd
+            ls
+            pwd
+            ls -a
+            sudo scp -r docker-compose.yaml ${{ secrets.USER }}@${{ secrets.HOST }}:~
 
 
       - name: executing remote ssh commands to deploy
