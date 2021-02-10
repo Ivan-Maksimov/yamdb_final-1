@@ -30,14 +30,14 @@ services:
       - postgres_network
 
   nginx:
-    image: nginx
+    image: nginx:1.19.6
     ports:
       - 8000:80
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - static_volume:/code/static  # <-- bind the static volume
-      - media_volume:/code/media  # <-- bind the media volume
-    depends_on:  # <-- wait for djangoapp to be "ready" before starting this service
+      - ./static:/code/static
+      - ./media:/code/media
+    depends_on:
       - web
     networks:
       - nginx_network
