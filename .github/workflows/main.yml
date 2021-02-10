@@ -66,6 +66,8 @@ jobs:
           ls
           pwd
           ls -a
+          sudo scp -r docker-compose.yaml ${{ secrets.USER }}@${{ secrets.HOST }}:~
+
 
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
@@ -74,6 +76,8 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            sudo pwd
+            sudo ls -a
             sudo docker pull serg733/yamdb_final_web:latest
             sudo docker-compose stop
             sudo docker-compose rm web
