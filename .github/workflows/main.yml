@@ -57,6 +57,9 @@ jobs:
     needs: build_and_push_to_docker_hub
 
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
@@ -67,17 +70,19 @@ jobs:
           target: "~/code/"
           script: |
             sudo docker pull serg733/yamdb_final_web:latest
+            sudo pwd
+            sudo pwd
+            sudo pwd
+            sudo pwd
+            sudo pwd
+            sudo ls -a
+            sudo ls -a
+            sudo ls -a
+            sudo ls -a
+
             sudo docker-compose stop
             sudo docker-compose rm web
-            sudo pwd
-            sudo pwd
-            sudo pwd
-            sudo pwd
-            sudo pwd
-            sudo ls -a
-            sudo ls -a
-            sudo ls -a
-            sudo ls -a
+
             sudo docker-compose up
 
   send_message:
