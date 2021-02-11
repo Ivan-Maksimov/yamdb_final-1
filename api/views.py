@@ -10,6 +10,11 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, generics
 from rest_framework import mixins, viewsets
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import (
+    IsAuthenticatedOrReadOnly,
+    AllowAny,
+    IsAuthenticated
+)
 
 from .pagination import NumberPagination
 from .filters import TitleFilter
@@ -23,9 +28,6 @@ from .permissions import (
     IsNotAuth, IsAdminOrReadOnly,
     IsAuthorOrModeratorOrAdminOrReadOnly,
     IsAdmin,
-    IsAuthenticatedOrReadOnly,
-    AllowAny,
-    IsAuthenticated
 )
 from .confirmation_code import ConfirmationCodeGenerator
 from django.db.models import Avg
