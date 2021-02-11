@@ -52,6 +52,8 @@ jobs:
           tags: serg733/yamdb_final_web:latest
 
   deploy:
+    env:
+      PROJECT_ROOT: ~/www/yamdb_final
 
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
@@ -66,8 +68,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "docker-compose.yaml, nginx/default.conf"
-          target: "~"
+          source: "docker-compose.yaml, nginx/default.conf, static, media"
+          target: ${{ env.PROJECT_ROOT }}
 
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
@@ -76,10 +78,11 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            cd ${{ env.PROJECT_ROOT }}
             sudo docker pull serg733/yamdb_final_web:latest
             sudo docker-compose stop
             sudo docker-compose rm web
-            sudo docker-compose up
+            sudo docker-compose up -d
 
   send_message:
     runs-on: ubuntu-latest
