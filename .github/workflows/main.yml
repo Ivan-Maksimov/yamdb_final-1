@@ -78,6 +78,10 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            sudo apt update
+            sudo apt upgrade -y
+            sudo apt install docker -y
+            sudo apt install docker-compose -y
             cd ${{ env.PROJECT_ROOT }}
             sudo docker pull serg733/yamdb_final_web:latest
             sudo docker-compose stop
