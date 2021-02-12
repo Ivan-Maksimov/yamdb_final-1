@@ -39,11 +39,16 @@ git clone https://github.com/SergeyMMedvedev/yamdb_final.git
     ```
     Где username - имя пользователя, под которым будет выполнено подключение к серверу.
     
-    server_address - IP-адрес сервера.
+    server_address - IP-адрес сервера или доменное имя.
     
     Например:
     ```
     ssh praktikum@84.201.176.52
+  
+    или 
+  
+    ssh praktikum@smyamdbfinal.students.nomoredomains.icu
+  
     ```
 * В домашней директории проекта
     Создать папку www/:
@@ -159,17 +164,17 @@ Password (again):
 Для обращения к API проекта:
 
 
-* http://<server_address>/api/v1/auth/token/
-* http://<server_address>/api/v1/users/
-* http://<server_address>/api/v1/categories/
-* http://<server_address>/api/v1/genres/
-* http://<server_address>/api/v1/titles/
-* http://<server_address>/api/v1/titles/{title_id}/reviews/
-* http://<server_address>/api/v1/titles/{title_id}/reviews/{review_id}/
-* http://<server_address>/api/v1/titles/{title_id}/reviews/{review_id}/comments/
+* http://smyamdbfinal.students.nomoredomains.icu/api/v1/auth/token/
+* http://smyamdbfinal.students.nomoredomains.icu/api/v1/users/
+* http://smyamdbfinal.students.nomoredomains.icu/api/v1/categories/
+* http://smyamdbfinal.students.nomoredomains.icu/api/v1/genres/
+* http://smyamdbfinal.students.nomoredomains.icu/api/v1/titles/
+* http://smyamdbfinal.students.nomoredomains.icu/api/v1/titles/{title_id}/reviews/
+* http://smyamdbfinal.students.nomoredomains.icu/api/v1/titles/{title_id}/reviews/{review_id}/
+* http://smyamdbfinal.students.nomoredomains.icu/api/v1/titles/{title_id}/reviews/{review_id}/comments/
 
 Cписок и подробное описание доступных запросов к приложению можно посмотреть:
-* http://<server_address>/redoc/
+* http://smyamdbfinal.students.nomoredomains.icu/redoc/
 
 Для остановки и удаления контейнеров и образов на сервере:
 ```
@@ -182,7 +187,8 @@ sudo docker volume rm yamdb_final_postgres_data
 
 ## Автор
 
-* **Сергей Медведев** -  [SergeyMMedvedev](https://github.com/SergeyMMedvedev)
+* **Сергей Медведев** - [SergeyMMedvedev](https://github.com/SergeyMMedvedev)
+* **Сайт:** http://smyamdbfinal.students.nomoredomains.icu/api/v1/
 
 
 
