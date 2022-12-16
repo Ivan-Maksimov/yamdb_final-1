@@ -12,7 +12,7 @@ services:
       - ./.env
 
   web:
-    image: serg733/yamdb_final_web:latest
+    image: usernameistakenistaken/yamdb_final_web:latest
     restart: always
     depends_on:
       - postgres
