@@ -1,4 +1,4 @@
-FROM python:3.8.5
+FROM python:3.8.5-slim
 WORKDIR /code
 COPY requirements.txt .
 RUN python -m pip install --upgrade pip
